@@ -20,7 +20,7 @@
                             <h2 class="h4 fw-bold mb-1">Welcome back</h2>
                             <p class="text-secondary mb-4">Use your account credentials to continue.</p>
 
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login', [], false) }}">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email Address</label>
