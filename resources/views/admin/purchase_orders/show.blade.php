@@ -22,33 +22,35 @@
     </div>
     <div class="card">
         <div class="card-header">Vendor Routing History</div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Vendor</th>
-                        <th>Priority</th>
-                        <th>Status</th>
-                        <th>Qty Assigned</th>
-                        <th>Qty Fulfilled</th>
-                        <th>Responded At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($purchaseOrder->vendors as $vendor)
-                    <tr>
-                        <td>{{ $vendor->name }}</td>
-                        <td>{{ $vendor->priority }}</td>
-                        <td><span class="badge bg-secondary">{{ Str::title(str_replace('_', ' ', $vendor->pivot->status)) }}</span></td>
-                        <td>{{ $vendor->pivot->quantity_assigned }}</td>
-                        <td>{{ $vendor->pivot->quantity_fulfilled ?? 'N/A' }}</td>
-                        <td>{{ $vendor->pivot->status !== 'pending' ? $vendor->pivot->updated_at->format('M d, Y H:i') : 'Pending' }}</td>
-                    </tr>
-                    @empty
-                    <tr><td colspan="6" class="text-center">No vendors have been assigned yet.</td></tr>
-                    @endforelse
-                </tbody>
-            </table>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Vendor</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Qty Assigned</th>
+                            <th>Qty Fulfilled</th>
+                            <th>Responded At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($purchaseOrder->vendors as $vendor)
+                        <tr>
+                            <td>{{ $vendor->name }}</td>
+                            <td>{{ $vendor->priority }}</td>
+                            <td><span class="badge bg-secondary">{{ Str::title(str_replace('_', ' ', $vendor->pivot->status)) }}</span></td>
+                            <td>{{ $vendor->pivot->quantity_assigned }}</td>
+                            <td>{{ $vendor->pivot->quantity_fulfilled ?? 'N/A' }}</td>
+                            <td>{{ $vendor->pivot->status !== 'pending' ? $vendor->pivot->updated_at->format('M d, Y H:i') : 'Pending' }}</td>
+                        </tr>
+                        @empty
+                        <tr><td colspan="6" class="text-center">No vendors have been assigned yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

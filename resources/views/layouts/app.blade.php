@@ -84,6 +84,55 @@
             border-color: #000;
             color: #fff;
         }
+
+        .table-responsive {
+            margin-bottom: 0;
+        }
+
+        .table-responsive .table {
+            min-width: 680px;
+            margin-bottom: 0;
+        }
+
+        .table-actions {
+            white-space: nowrap;
+        }
+
+        .pagination {
+            flex-wrap: wrap;
+            gap: .25rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 575.98px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .page-toolbar {
+                align-items: flex-start !important;
+                flex-direction: column;
+                gap: .75rem;
+            }
+
+            .page-toolbar .btn,
+            .page-toolbar form {
+                width: 100%;
+            }
+
+            .page-toolbar form .btn {
+                width: 100%;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
